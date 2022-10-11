@@ -1,0 +1,25 @@
+USER STORIES
+University Scheduling System
+
+A descriptive overall explanation of software features within the project to better describe it from the perspective of the end user(customer). 
+
+As a Lecturer, I want to be able to set up appointment times according to my schedule, so that students can reach me easier.
+
+As a Lecturer, I want to be able to reschedule my appointment time according to my schedule, so that students can be updated on when to reach me.
+
+As a Lecturer, I want to be able to receive notifications about updates to the appointment according to my schedule, so that I can better be prepared and on time for my appointment.
+
+As a Lecturer, I want to be able to set requirements needed for appointments, so that students can better be prepared before the meeting.
+
+As a Lecturer, I want to be able to cancel appointments, so that students can be notified before the meeting.
+
+As a Student, I want to be able to set up appointment times according to my lecture schedule, so that I can better have a clear understanding of my courses.
+
+As a Student, I want to be able to reschedule my appointment time according to my schedule, so that Lecturers can be updated on when to reach me.
+
+As a Student, I want to be able to set areas I do not understand needed for appointments so that Lecturers can better be prepared before the meeting.
+
+As a Student, I want to be able to receive notifications about updates to the appointment according to my schedule so that I can better be prepared and on time for my appointment.
+
+As a Student, I want to be able to view my appointments, so that I can track my meetings according to my schedules.
+
