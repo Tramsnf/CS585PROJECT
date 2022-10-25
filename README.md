@@ -1,2 +1,7 @@
-# CS585PROJECT
-UNIVERSITY COMMUNITY MEETING SCHEDULER: HELP STAFFS AND STUDENTS BETTER COORDINATE INTERACTIONS
+import sys
+
+for line in sys.stdin:
+    if 'Exit' == line.rstrip():
+        break
+    print(f'Processing Message from sys.stdin *****{line}*****')
+print("Done")
