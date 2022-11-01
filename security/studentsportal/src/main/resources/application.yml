@@ -1,11 +1,16 @@
 server:
   port: 8083
 
+variables:
+  database: database_name
+  username: database_user
+  password: database_password
+
 spring:
   datasource:
-    username: root
-    password: Fireburn1!
-    url: jdbc:mysql://localhost:3306/user_db?reconnect=true
+    username: ${variables.username:root}
+    password: ${variables.password:root}
+    url: jdbc:mysql://localhost:3306/${variables.database:students_portal}?reconnect=true
     driver-class-name: com.mysql.cj.jdbc.Driver
   jpa:
     show-sql: false
@@ -27,11 +32,6 @@ keycloak:
     adminUser:
       username: bael-admin
       password: pass
-    realmImportFile: baeldung-realm.json
-    realm: public-library
-    resource: spring-boot-app
-    auth-server-url: http://localhost:8083/auth
-    ssl-required: external
-    public-client: true
-    principal-attribute: preferred_username
+    realmImportFile: students_portal_realm.json
+
 

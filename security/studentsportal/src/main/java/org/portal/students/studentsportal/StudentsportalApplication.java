@@ -18,6 +18,7 @@ public class StudentsportalApplication {
     private static final Logger LOG = LoggerFactory.getLogger(StudentsportalApplication.class);
 
     public static void main(String[] args) {
+        System.setProperty("keycloak.theme.dir","src/main/resources/themes");
         SpringApplication.run(StudentsportalApplication.class, args);
     }
     @Bean
