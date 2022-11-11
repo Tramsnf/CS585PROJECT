@@ -1,0 +1,8 @@
+{
+  "realm": "students_portal",
+  "resource": "authentication-provider",
+  "auth-server-url": "http://localhost:8083/auth/",
+  "ssl-required": "external",
+  "public-client": true,
+  "confidential-port": 0
+}
