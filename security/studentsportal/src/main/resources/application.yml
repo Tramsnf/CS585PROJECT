@@ -2,9 +2,9 @@ server:
   port: 8083
 
 variables:
-  database: database_name
-  username: database_user
-  password: database_password
+  database: user_db
+  username: root
+  password: Fireburn1!
 
 spring:
   datasource:
