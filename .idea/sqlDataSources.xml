@@ -4,7 +4,15 @@
     <mapping uuid="968bc862-9f13-4935-aa47-2874a3ad50e8" name="cs585 Mapping">
       <data-sources db="099d2cb2-381c-49da-b59b-ff1253b72dae" />
       <scope>
-        <node kind="schema" qname="cs585" />
+        <node negative="1">
+          <node kind="database" negative="1">
+            <node kind="schema" negative="1" />
+          </node>
+          <node kind="schema">
+            <name qname="mysql" />
+            <name qname="cs585" />
+          </node>
+        </node>
       </scope>
     </mapping>
   </component>
