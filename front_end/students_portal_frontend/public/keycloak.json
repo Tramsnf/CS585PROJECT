@@ -1,0 +1,8 @@
+{
+  "realm": "students_portal",
+  "resource": "authentication-provider",
+  "auth-server-url": "http://66.228.58.96/auth/",
+  "ssl-required": "external",
+  "public-client": true,
+  "confidential-port": 0
+}
