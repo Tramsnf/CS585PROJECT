@@ -1,0 +1,17 @@
+version: "2"
+services:
+
+  student_portal:
+    image: student_portal:latest
+    container_name: student_portal
+    restart: unless-stopped
+    ports:
+      - "8084:8084"
+    extra_hosts:
+      - "host.docker.internal:host-gateway"
+    environment:
+      - DATABASE_URL=jdbc:mysql://host.docker.internal:3306/user_db?reconnect=true
+      - DATABASE_USER=root
+      - DATABASE_PASSWORD=root
+      - I_AM_ROOT_URI=http://66.228.58.96/auth
+      - JWT_SECRET_KEY=iSbfvSZrSBQMFRPIMbDs1BKuhX7O9aje
