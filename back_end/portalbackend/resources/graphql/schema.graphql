@@ -1,0 +1,114 @@
+# java.time.LocalDateTime implementation
+scalar LocalDateTime
+
+type Query{
+    students : [Student]
+    lecturers : [Lecturer]
+    getActiveProfile( type : String ) : ActiveProfileDTO
+    getProfileByRefId( refId : String ) : ActiveProfileDTO
+    searchProfiles( profile : String ,  name : String ): [ActiveProfileDTO]
+    profileHighlights( profile : String ) : UserSpacesDto
+    getDetailedChatSpace( profile : String ,  refId : String ) : SpaceDTO
+    getMeetings( refId : String ) : [SpaceItem]
+    getNotifications : [NotificationDTO]
+}
+
+type Mutation {
+    createProfile( profile : String ) : ActiveProfileDTO
+    postMessage( messageDto : MessageBody , profileType : String ) : SpaceDTO
+    markNotificationRead( id : Int ) : [NotificationDTO]
+}
+
+type Student {
+    id: ID
+    profile: UserProfile
+    registrationNumber: String
+}
+
+type ActiveProfileDTO {
+    id: ID
+    type: String
+    profile: UserProfile
+    registrationNumber: String
+}
+
+type Lecturer {
+    id: ID
+    profile: UserProfile
+    registrationNumber: String
+}
+
+type UserProfile {
+    id: ID
+    refId: String
+    email: String
+    userName: String
+}
+
+enum MeetingType {
+    ONLINE
+    PHYSICAL
+}
+
+enum SpaceItemType {
+    MESSAGE
+    MEETING
+}
+
+type SpaceItem {
+    id: ID
+    type: SpaceItemType
+    message: String
+    notified: Int
+    topics: String
+    profile: UserProfile
+    timeSent: String
+    timeRead: String
+    spaceRefId: Int
+    from: UserProfile
+    to: UserProfile
+    title: String
+    link: String
+    time: String
+    meetingType: MeetingType
+    description: String
+    createdAt: String
+    updatedAt: String
+}
+
+type SpaceDTO{
+    id: ID
+    title: String
+    lecturer: Lecturer
+    student: Student
+    spaceItems: [SpaceItem]
+    createdAt: String
+    updatedAt: String
+}
+
+type UserSpacesDto {
+    recentlyContacted: [ SpaceDTO ]
+    frequentlyContacted: [ SpaceDTO ]
+}
+
+input MessageBody {
+    spaceItemType: SpaceItemType
+    message: String
+    to: String
+    title: String
+    time: LocalDateTime
+    meetingType: MeetingType
+    description: String
+    link: String
+}
+
+type NotificationDTO {
+    id: Int
+    url: String
+    to: String
+    description: String
+    markedRead: Boolean
+    createdAt: String
+    updatedAt: String
+}
+

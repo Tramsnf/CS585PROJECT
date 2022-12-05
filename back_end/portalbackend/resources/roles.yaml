@@ -1,0 +1,17 @@
+permission-mapping:
+  roles:
+    - name: access_eportal_service
+      description: 'Role for all e-portal users, enables them to perform basic actions on the portal'
+      permissions:
+      - TEST_PERMISSION
+    - name: student
+      description: 'Role for all students'
+      permissions:
+      - TEST_PERMISSION
+    - name: lecturer
+      description: 'Role for all lecturers'
+      permissions:
+      - TEST_PERMISSION
+  subscriptions:
+
+

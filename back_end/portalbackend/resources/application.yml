@@ -1,0 +1,64 @@
+server:
+  port: 8084
+  servlet:
+    context-path: ${SERVLET_CONTEXT:/api}
+spring:
+#  r2dbc:
+#    url: r2dbc:pool:mysql://localhost:3306/studentportal
+#    username: root
+#    password: root
+#    initialization-mode: always
+
+  datasource:
+    username: ${DATABASE_USER:root}
+    password: ${DATABASE_PASSWORD:root}
+    url: ${DATABASE_URL:jdbc:mysql://localhost:3306/studentportal?reconnect=true}
+    driver-class-name: com.mysql.cj.jdbc.Driver
+  jpa:
+    show-sql: false
+    open-in-view: false
+    hibernate:
+      ddl-auto: update
+      naming:
+        physical-strategy: org.hibernate.boot.model.naming.PhysicalNamingStrategyStandardImpl
+    properties:
+      hibernate:
+        dialect: org.hibernate.dialect.MySQL5InnoDBDialect
+        current_session_context_class: org.springframework.orm.hibernate5.SpringSessionContext
+  security:
+    oauth2:
+      client:
+        provider:
+          api-service-client:
+            issuer-uri: ${uris.root.iam}/realms/students_portal
+        registration:
+          api-service-client:
+            client-id: backend-authentication
+            client-secret: ${INTEGRATION_CLIENT_SECRET:0f946f7d-3aba-408f-9e4a-2901b46b4e1b}
+            authorization-grant-type: client_credentials
+  graphql:
+    graphiql:
+      enabled: true
+    servlet:
+      corsEnabled: true
+    schema:
+      fileExtensions: .graphql, .graphqls
+data:
+  id:
+    role:
+      lecturer: ${LECTUER_ROLE_ID:5270fc32-1281-4461-8676-85c711bcdabe}
+      student: ${STUDENT_ROLE_ID:9ba51930-acdf-4c40-a3bd-16001b30e044}
+
+logging.level:
+  org.springframework:
+    data.r2dbc: DEBUG
+    security: TRACE
+
+
+uris:
+  root:
+    iam: ${I_AM_ROOT_URI:http://66.228.58.96/auth}
+
+util:
+  jwt:
+    secretKey: ${JWT_SECRET_KEY:4da27af7-5dad-49c3-a35d-7897e2b38440}
